@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    x:Class="FableDevice.Views.CharacterCreationViews.CharacterDetailPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar = "false">
+    <ContentPage.Padding> <!-- PADDING -->
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Resources> <!-- RESOURCES -->
+        <ResourceDictionary>
+            <Style x:Key="entryStack" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="{StaticResource fablePurple}"/>
+                <Setter Property="Padding" Value="20,10,20,10"/>
+            </Style>
+            <Style x:Key="entryLabel" TargetType="Label" BasedOn="{StaticResource BasicLabel}">
+                <Setter Property="BackgroundColor" Value="{StaticResource fablePurple}"/>
+                <Setter Property="FontSize" Value="22"/>
+            </Style>
+            <Style x:Key="entry" TargetType="Entry" BasedOn="{StaticResource BasicEntry}">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+    	<Label Style="{StaticResource BasicLabel}"
+            Text = "Details"
+            HorizontalOptions="Center"
+            FontSize="40">
+            <Label.Effects>
+                <effects:LabelSizeFontToFit/>
+            </Label.Effects>
+        </Label>
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                <StackLayout Style="{StaticResource entryStack}" Padding="20,20,20,10">
+                    <Label Style="{StaticResource entryLabel}"
+                        Text="Age"/>
+                    <Entry Style="{StaticResource entry}"
+                        x:Name="ageEntry"
+                        TextChanged="ageChanged"
+                        Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout Style="{StaticResource entryStack}">
+                    <Label Style="{StaticResource entryLabel}"
+                        Text="Height"/>
+                    <Entry Style="{StaticResource entry}"
+                        x:Name="heightEntry"
+                        TextChanged="heightChanged"/>
+                </StackLayout>
+                <StackLayout Style="{StaticResource entryStack}">
+                    <Label Style="{StaticResource entryLabel}"
+                        Text="Ethnicity"/>
+                    <Entry Style="{StaticResource entry}"
+                        x:Name="ethnicityEntry"
+                        TextChanged="ethnicityChanged"/>
+                </StackLayout>
+                <StackLayout Style="{StaticResource entryStack}">
+                    <Label Style="{StaticResource entryLabel}"
+                        Text="Gender Identity"/>
+                    <Entry Style="{StaticResource entry}"
+                        x:Name="identityEntry"
+                        TextChanged="identityChanged"/>
+                </StackLayout>
+                <StackLayout Style="{StaticResource entryStack}">
+                    <Label Style="{StaticResource entryLabel}"
+                        Text="Description"/>
+                    <Editor Style="{StaticResource BasicEditor}"
+                        x:Name="descEditor"
+                        TextChanged="descriptionChanged"/>
+                </StackLayout>
+                <StackLayout Style="{StaticResource entryStack}" Padding="20,10,20,20">
+                    <Label Style="{StaticResource entryLabel}"
+                        Text="Personality"/>
+                    <Editor Style="{StaticResource BasicEditor}"
+                        x:Name="personEditor"
+                        TextChanged="personalityChanged"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal"
+                VerticalOptions="End">
+            <Button Style="{StaticResource CancelButton}"
+                Clicked="cancelClicked">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                        iOS="true"
+                        Android="false">
+                    </OnPlatform>
+                </Button.IsVisible>
+            </Button>
+            <Button Style="{StaticResource MenuButton}"
+                x:Name="finishButton"
+                Text="Finish"
+                HorizontalOptions="FillAndExpand"
+                />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

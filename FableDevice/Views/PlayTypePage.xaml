@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.PlayTypePage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="buttonWidth">240</x:Double>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="0,70,0,0"
+            Android="0,50,0,0">
+        </OnPlatform>
+    </ContentPage.Padding>
+	<StackLayout VerticalOptions="Fill"
+        Padding="0">
+        <Image x:Name="logo"/>
+        <StackLayout VerticalOptions="FillAndExpand"
+            Spacing="20"
+            Padding="20">
+        <Label Text="Start game as..."
+            HorizontalOptions="Center"
+            TextColor="White"
+            FontAttributes="Bold"
+            FontSize="25"/>
+        <Button Style="{StaticResource MenuButton}"
+            Text="   Player Character   "
+            Clicked="playerClicked"
+            WidthRequest="{StaticResource buttonWidth}"/>
+        <Button Style="{StaticResource MenuButton}"
+            Text="   Game Master   "
+            WidthRequest="{StaticResource buttonWidth}"
+            Clicked="gameMasterClicked"/>
+        <BoxView
+            Color="Blue"
+            HeightRequest="1"
+            VerticalOptions="CenterAndExpand"/>
+        <Button Style="{StaticResource MenuButton}"
+            Text="   Rulebook   "
+            Clicked="rulebookClicked"
+            WidthRequest="{StaticResource buttonWidth}"/>
+        <Button Style="{StaticResource MenuButton}"
+            Text="   Info   "
+            WidthRequest="{StaticResource buttonWidth}"
+            Clicked="betaTestClicked"/>
+        <BoxView
+            Color="Blue"
+            HeightRequest="1"
+            VerticalOptions="CenterAndExpand"/>
+        <Label TextColor="White"
+            Text="V 1.0.1 Scotti Anderson 2017"
+            FontSize="15"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

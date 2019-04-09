@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    x:Class="FableDevice.Views.CreditsPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources> <!-- RESOURCES -->
+        <ResourceDictionary>
+            <Style x:Key="nameLabel" BasedOn="{StaticResource CenteredLabel}" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+	<ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+    <StackLayout>
+        <ScrollView BackgroundColor="{StaticResource fableDark}"
+            VerticalOptions="FillAndExpand"
+            Padding="15"
+            x:Name="content">
+            <StackLayout>
+                <Label Style="{StaticResource CenteredLabel}"
+                    Text="Tale-Top"
+                    FontSize="60">
+                    <Label.Effects>
+                        <effects:LabelSizeFontToFit/>
+                    </Label.Effects>
+                </Label>
+                <BoxView BackgroundColor="{StaticResource fablePurple}"
+                    HeightRequest="1"/>
+                <Label Style="{StaticResource CenteredLabel}"
+                    Text="A game by:"
+                    FontSize="20"/>
+                <Label Style="{StaticResource CenteredLabel}"
+                    Text="Scotti Anderson"
+                    FontSize="30">
+                    <Label.Effects>
+                        <effects:LabelSizeFontToFit/>
+                    </Label.Effects>
+                </Label>
+                <Label Style="{StaticResource CenteredLabel}"
+                    Text="ScottiBAnderson@gmail.com"
+                    FontSize="30">
+                    <Label.Effects>
+                        <effects:LabelSizeFontToFit/>
+                    </Label.Effects>
+                </Label>
+                <BoxView BackgroundColor="{StaticResource fablePurple}"
+                    HeightRequest="1"/>
+                <Label Style="{StaticResource CenteredLabel}"
+                    Text="Special Thanks to my Mentor,"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Jenny Orr"/>
+                <Label Style="{StaticResource CenteredLabel}"
+                    Text="And to the playtesters:"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Adam Hill"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="David Pyne"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Dylan McCombs"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Emily Tuggle"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Harrison Cordle"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Heidi Thompson"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Ivy Major-McDowell"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Jeffy Anderson"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Jesse Adamore"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Jill Adamore"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Kendra Schmal"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Mackinnon Hart"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Michelle Reed"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Tyler Higley"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="William Bremer"/>
+                <BoxView BackgroundColor="{StaticResource fablePurple}"
+                    HeightRequest="1"/>
+                <Label Style="{StaticResource CenteredLabel}"
+                    Text="Tale-Top was made possible by the Learning by Creating Steering Comittee at Willamette University:"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Alexandra Opie"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Cayla Skillin-Brauchle"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Abigail Susik"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Héctor Agüero"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Gretchen Flesher Moon"/>
+                <Label Style="{StaticResource nameLabel}"
+                    Text="Marsa Terrell"/>
+            </StackLayout>
+        </ScrollView>
+        <Button Style="{StaticResource MenuButton}"
+            Text="  Exit  "
+            Clicked="exitClicked"
+            HorizontalOptions="FillAndExpand"/>
+    </StackLayout>
+</ContentPage>

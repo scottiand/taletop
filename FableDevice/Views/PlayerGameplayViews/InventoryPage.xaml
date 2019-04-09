@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.PlayerGameplayViews.InventoryPage"
+    NavigationPage.HasNavigationBar="false"
+    BackgroundColor="{StaticResource fableSky}"
+    >
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+    <StackLayout>
+        <StackLayout Orientation="Horizontal"
+            HorizontalOptions="FillAndExpand">
+            <Label x:Name="header"
+                Text="Inventory"
+                Style="{StaticResource BasicLabel}"
+                FontSize="30"
+                HorizontalOptions="StartAndExpand"/>
+            <Label/>
+            <Button x:Name="addButton"
+                Style="{StaticResource MenuButton}"
+                Text="  Add  "
+                HorizontalOptions="End"
+                Clicked="addClicked"
+                />
+        </StackLayout>
+        <Label
+            Style="{StaticResource BasicLabel}"
+            FontSize="20"
+            HorizontalOptions="Center">
+            <Label.Text>
+                <OnPlatform x:TypeArguments="x:String"
+                    iOS="Swipe left for options"
+                    Android="Hold for options"/>
+            </Label.Text>
+        </Label>
+        <StackLayout BackgroundColor="{StaticResource fableDark}" Padding="1,2,1,1" VerticalOptions="FillAndExpand">
+        	<ListView
+                x:Name="listView"
+                SeparatorVisibility="None"
+                RowHeight="60"
+                BackgroundColor="{StaticResource fableDark}"
+                ItemSelected="Handle_ItemSelected"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ItemCell>
+                            <local:ItemCell.ContextActions>
+                                <MenuItem
+                                    Text="Edit"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="editClicked"/>
+                                <MenuItem
+                                    Text="Detail"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="detailClicked"/>
+                                <MenuItem
+                                    Text="Drop"
+                                    IsDestructive="true"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="dropClicked"/>
+                            </local:ItemCell.ContextActions>
+                        </local:ItemCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <Button Style="{StaticResource MenuButton}"
+            Text="Back"
+            HorizontalOptions="Fill"
+            Clicked="backClicked"/>
+    </StackLayout>
+</ContentPage>

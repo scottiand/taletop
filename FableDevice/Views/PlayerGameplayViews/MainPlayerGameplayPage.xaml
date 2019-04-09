@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+    x:Class="FableDevice.Views.PlayerGameplayViews.MainPlayerGameplayPage"
+    NavigationPage.HasNavigationBar="false"
+    BackgroundColor="{StaticResource fableSky}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="gridLayout"
+                TargetType="Grid">
+                <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}"/>
+                <Setter Property="Padding" Value="20"/>
+            </Style>
+            <Style x:Key="presetButton" TargetType="Button">
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="BackgroundColor" Value="Gray"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style x:Key="hiddenButton" TargetType="local:NoShadowButton">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+	<ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="0,20,0,0"
+            Android="0">
+        </OnPlatform>
+    </ContentPage.Padding>
+    <RelativeLayout>
+        <Grid
+            Style="{StaticResource gridLayout}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.15}"> <!-- Player Character Name -->
+            <Label 
+                Text="{Binding name}"
+                FontSize="40"
+                FontAttributes="Bold"
+                TextColor="Black"
+                VerticalOptions="Center">
+                <Label.Effects>
+                    <effects:LabelSizeFontToFit/>
+                </Label.Effects>
+            </Label>
+        </Grid>
+        <!-- Willpower and Conditions -->
+        <Grid
+            BackgroundColor="{StaticResource fableDark}"
+            Style="{StaticResource gridLayout}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.25}"
+            RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.15}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout x:Name="willLabelContainer">
+                <Label
+                    Style="{StaticResource CenteredLabel}"
+                    FontSize="78"
+                    Text="{Binding currSlashMax}"
+                    x:Name="willPowerLabel">
+                    <Label.Effects>
+                        <effects:LabelSizeFontToFit/>
+                    </Label.Effects>
+                </Label>
+            </StackLayout>
+            <Label
+                x:Name="willLabel"
+                Grid.Row="2"
+                Grid.Column="0"
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"/>
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                TextColor="White"
+                Text="Conditions"
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalOptions="Center">
+                <Label.Effects>
+                    <effects:LabelSizeFontToFit/>
+                </Label.Effects>
+            </Label>
+            <local:ContentButton
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.RowSpan="2"
+                BackgroundColor="{StaticResource fablePurple}"
+                Clicked="conditionsClicked"
+                x:Name="conditionsButton"
+                VerticalOptions="CenterAndExpand">
+            </local:ContentButton> 
+        </Grid>
+        <StackLayout
+            Orientation="Horizontal"
+            Spacing="10"
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.50}"
+            RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.40}">
+            <Grid
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Fill"
+                Padding="10,10,10,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2.5*"/>
+                    <RowDefinition Height="2.5*"/>
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource BasicLabel}"
+                    BackgroundColor="{StaticResource fableDark}"
+                    Text="Adjust Willpower"
+                    FontSize="20"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"/>
+                <Button  Grid.Row="1" Grid.Column="0"
+                    Style="{StaticResource MenuButton}"
+                    Text="-"
+                    FontSize="40"
+                    HorizontalOptions="Fill"
+                    Clicked="willMinusClicked"/>
+                <Button  Grid.Row="1" Grid.Column="1"
+                    Style="{StaticResource MenuButton}"
+                    Text="+"
+                    FontSize="40"
+                    HorizontalOptions="Fill"
+                    Clicked="willPlusClicked"/>
+                <local:ContentButton Grid.Row="2" Grid.Column="0"
+                    Style="{StaticResource statButton}"
+                    BackgroundColor="{StaticResource strColor}"
+                    Clicked="strClicked"
+                    x:Name="strButton"/>
+                <local:ContentButton Grid.Row="2" Grid.Column="1"
+                    Style="{StaticResource statButton}"
+                    BackgroundColor="{StaticResource dexColor}"
+                    Clicked="dexClicked"
+                    x:Name="dexButton"/>
+                <local:ContentButton Grid.Row="3" Grid.Column="0"
+                    Style="{StaticResource statButton}"
+                    BackgroundColor="{StaticResource wisColor}"
+                    Clicked="wisClicked"
+                    x:Name="wisButton"/>
+                <local:ContentButton Grid.Row="3" Grid.Column="1"
+                    Style="{StaticResource statButton}"
+                    BackgroundColor="{StaticResource chaColor}"
+                    Clicked="chaClicked"
+                    x:Name="chaButton" />
+            </Grid>
+            <!--<StackLayout
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Fill"
+                Padding="0,10,10,10"
+                Spacing="10">
+                <Button Style="{StaticResource MenuButton}"
+                    Text="Preset One"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="Fill"/>
+                <Button Style="{StaticResource MenuButton}"
+                    Text="Preset Two"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="Fill"/>
+                <Button Style="{StaticResource MenuButton}"
+                    Text="Preset Three"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="Fill"/>
+                <Button Style="{StaticResource MenuButton}"
+                    Text="Preset Four"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="Fill"/>
+            </StackLayout>-->
+        </StackLayout>
+        <local:PlayerNavBar x:Name="navBar"/>
+    </RelativeLayout>
+</ContentPage>

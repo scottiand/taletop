@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.CharacterCreationViews.CharacterCreationIntroPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar="false">
+	<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20,20,20,20">
+        </OnPlatform>
+	</ContentPage.Padding>
+    <StackLayout
+        VerticalOptions="Fill"
+        HorizontalOptions="Fill">
+        <StackLayout
+            BackgroundColor="{StaticResource fableDark}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Padding = "20">
+            <Label Style="{StaticResource BasicLabel}"
+                x:Name="label"
+                FontSize="25"
+                Text="Hello I am the text wassup? I am very long text that doesn't fit on one line"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"/>
+         </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button Style="{StaticResource CancelButton}"
+                Clicked="cancelClicked">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                        iOS="true"
+                        Android="false">
+                    </OnPlatform>
+                </Button.IsVisible>
+            </Button>
+            <Button Style="{StaticResource MenuButton}"
+                Text="Skip"
+                HorizontalOptions="End"
+                Clicked="skipClicked"
+                WidthRequest="70"/>
+            <Button Style="{StaticResource MenuButton}"
+                x:Name="nextButton"
+                Text="Begin"
+                HorizontalOptions="FillAndExpand"
+                Clicked="Handle_Clicked"/>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

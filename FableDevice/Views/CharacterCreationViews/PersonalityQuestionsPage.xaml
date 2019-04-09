@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    x:Class="FableDevice.Views.CharacterCreationViews.PersonalityQuestionsPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="label"
+                TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style x:Key="radioButton"
+                TargetType="Button"
+                BasedOn="{StaticResource MenuButton}">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Grid.Row" Value="0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+	<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20,20,20,20"/>
+    </ContentPage.Padding>
+    <StackLayout>
+        <StackLayout
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="{StaticResource fableDark}"
+            Padding="20">
+        <!--<Label VerticalOptions="StartAndExpand"/> -->
+        <Label
+            x:Name="labelOne"
+            Text="My Character"
+            Style="{StaticResource BasicLabel}"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            FontSize="25"/>
+        <Label
+            Text="{Binding question}"
+            Style="{StaticResource BasicLabel}"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            FontSize="25"
+            VerticalOptions="Center"/>
+        </StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand" x:Name="agreeLabelStack">
+        <Label Style="{StaticResource BasicLabel}"
+            Text="Neutral"
+            HorizontalOptions="CenterAndExpand"
+            FontSize="40"
+            x:Name="agreeLabel">
+            <Label.Effects>
+                <effects:LabelSizeFontToFit/>
+            </Label.Effects>
+            </Label>
+        </StackLayout>
+        <Grid>
+            <Button Style="{StaticResource radioButton}"
+                x:Name = "stronglyDisagree"
+                Clicked="strDisClicked"
+                Grid.Column="0"/>
+            <Button Style="{StaticResource radioButton}"
+                x:Name = "disagree"
+                Clicked="disClicked"
+                Grid.Column="1"/>
+            <Button Style="{StaticResource radioButton}"
+                x:Name = "somewhatDisagree"
+                Clicked="somDisClicked"
+                Grid.Column="2"/>
+            <Button Style="{StaticResource radioButton}"
+                BackgroundColor="{StaticResource fableYellow}"
+                x:Name = "neutral"
+                Clicked="neutralClicked"
+                Grid.Column="3"/>
+            <Button Style="{StaticResource radioButton}"
+                x:Name = "somewhatAgree"
+                Clicked="somAgrClicked"
+                Grid.Column="4"/>
+            <Button Style="{StaticResource radioButton}"
+                x:Name = "agree"
+                Clicked="agreeClicked"
+                Grid.Column="5"/>
+            <Button Style="{StaticResource radioButton}"
+                x:Name = "stronglyAgree"
+                Clicked="strAgrClicked"
+                Grid.Column="6"/>
+        </Grid>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Style="{StaticResource BasicLabel}"
+                Text="Disagree"/>
+            <Label Style="{StaticResource BasicLabel}"
+                Text="Agree"
+                HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+        <!--<Slider
+            x:Name="slider"
+            Value=".5"
+            HorizontalOptions="FillAndExpand"
+            HeightRequest="60">
+                <Slider.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color"
+                        iOS="{StaticResource fableSky}"
+                        Android="{StaticResource fablePurple}"/>
+                </Slider.BackgroundColor>
+            </Slider>-->
+        <StackLayout Orientation="Horizontal">
+            <Button Style="{StaticResource CancelButton}"
+                Clicked="cancelClicked">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                        iOS="true"
+                        Android="false">
+                    </OnPlatform>
+                </Button.IsVisible>
+            </Button>
+            <Button Style="{StaticResource MenuButton}"
+                x:Name="nextButton"
+                Text="Next"
+                HorizontalOptions="FillAndExpand"
+                Clicked="Handle_Clicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

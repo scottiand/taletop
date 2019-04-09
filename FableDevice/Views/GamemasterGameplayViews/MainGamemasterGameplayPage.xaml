@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FableDevice.Models.Utilities"
+    x:Class="FableDevice.Views.GamemasterGameplayViews.MainGamemasterGameplayPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar = "false">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="barButton" TargetType="Button" BasedOn="{StaticResource MenuButton}">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="Grid.Row" Value="2"/>
+            </Style>
+            <Style x:Key="barGrid" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{StaticResource fableDark}"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style x:Key="barFill" TargetType="BoxView">
+                <Setter Property="Color" Value="{StaticResource fableYellow}"/>
+                <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=1}"/>
+            </Style>
+            <Style x:Key="barBack" TargetType="RelativeLayout">
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="Grid.Row" Value="1"/>
+                <Setter Property="Grid.Column" Value="0"/>
+                <Setter Property="Grid.ColumnSpan" Value="4"/>
+            </Style>
+            <Style x:Key="barTitle" TargetType="Label" BasedOn="{StaticResource BasicLabel}">
+                <Setter Property="Grid.Row" Value="0"/>
+                <Setter Property="Grid.Column" Value="0"/>
+                <Setter Property="Grid.ColumnSpan" Value="4"/>
+            </Style>
+            <Style x:Key="outcomeButton" TargetType="local:NoPaddingButton" BasedOn="{StaticResource MenuButton}">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.2}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <RelativeLayout HorizontalOptions="FillAndExpand">
+	<StackLayout Spacing="10" VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.901}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1}"> 
+        <StackLayout.Padding>
+            <OnPlatform
+                x:TypeArguments="Thickness"
+                iOS="20,40,20,20"
+                Android="20">
+            </OnPlatform>
+        </StackLayout.Padding>
+        <Frame BackgroundColor="{StaticResource fableDark}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <Label Style="{StaticResource BasicLabel}"
+                    Text="Partial Success"
+                    FontSize="25"
+                    x:Name="successLabel"/>
+                <ScrollView>
+                    <Label x:Name="resultLabel"
+                        Style="{StaticResource BasicLabel}"
+                        FontSize="20"/>
+                </ScrollView>
+            </StackLayout>
+        </Frame>
+
+        <Button Style="{StaticResource MenuButton}"
+            HorizontalOptions="FillAndExpand"
+            Text = "Begin Conflict"
+            x:Name="conflictButton"
+            Clicked="conflictClicked"/>
+            
+        <Grid Style="{StaticResource barGrid}"> <!-- Objective Completion Box -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Label Style="{StaticResource barTitle}"
+                Text="Objective Completion"/>
+            <RelativeLayout Style="{StaticResource barBack}">
+                <BoxView x:Name="objectiveBar"
+                    Style="{StaticResource barFill}"/>
+            </RelativeLayout>
+            <local:NoPaddingButton Grid.Column="0"
+                Style="{StaticResource barButton}"
+                Text="-"
+                x:Name="objMinus"
+                Clicked="objMinusClicked"/>
+            <local:NoPaddingButton Grid.Column="1"
+                Style="{StaticResource barButton}"
+                Text="+"
+                x:Name="objPlus"
+                Clicked="objPlusClicked"/>
+            <local:NoPaddingButton Grid.Column="2"
+                Style="{StaticResource barButton}"
+                Text="- 10"
+                x:Name="objMinus10"
+                Clicked="objMinus10Clicked"/>
+            <local:NoPaddingButton Grid.Column="3"
+                Style="{StaticResource barButton}"
+                Text="+ 10"
+                x:Name="objPlus10"
+                Clicked="objPlus10Clicked"/>
+        </Grid>
+            
+        <Grid Style="{StaticResource barGrid}"> <!-- Risk and Escalation Box -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Label Style="{StaticResource barTitle}"
+                Text="Escalation    Risk: 0"
+                x:Name="escalationLabel"/>
+            <RelativeLayout Style="{StaticResource barBack}" x:Name="barBack">
+                <BoxView x:Name="escalationBar"
+                    Style="{StaticResource barFill}"/>
+            </RelativeLayout>
+            <local:NoPaddingButton Grid.Column="0"
+                Style="{StaticResource barButton}"
+                Text="-"
+                x:Name="escMinus"
+                Clicked="escMinusClicked"/>
+            <local:NoPaddingButton Grid.Column="1"
+                Style="{StaticResource barButton}"
+                Text="+"
+                x:Name="escPlus"
+                Clicked="escPlusClicked"/>
+            <local:NoPaddingButton Grid.Column="2"
+                Style="{StaticResource barButton}"
+                Text="- 5"
+                x:Name="escMinus5"
+                Clicked="escMinus5Clicked"/>
+            <local:NoPaddingButton Grid.Column="3"
+                Style="{StaticResource barButton}"
+                Text="+ 5"
+                x:Name="escPlus5"
+                Clicked="escPlus5Clicked"/>
+        </Grid>
+        <RelativeLayout HorizontalOptions="FillAndExpand"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1}"
+                VerticalOptions="End">
+            <local:NoPaddingButton Style="{StaticResource outcomeButton}"
+                x:Name="criticalFailButton"
+                Text="UF"
+                Clicked="criticalFailClicked"
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0}"/>
+            <local:NoPaddingButton Style="{StaticResource outcomeButton}"
+                x:Name="failButton"
+                Text="F"
+                Clicked="failClicked"
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.2}"/>
+            <local:NoPaddingButton Style="{StaticResource outcomeButton}"
+                x:Name="partialSuccessButton"
+                Text="PS"
+                Clicked="partialSuccessClicked"
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.4}"/>
+            <local:NoPaddingButton Style="{StaticResource outcomeButton}"
+                x:Name="successButton"
+                Text="S"
+                Clicked="successClicked"
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.6}"/>
+            <local:NoPaddingButton Style="{StaticResource outcomeButton}"
+                x:Name="critcalSuccessButton"
+                Text="GS"
+                Clicked="criticalSuccessClicked"
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.8}"/>
+        </RelativeLayout>
+
+
+            
+        
+    </StackLayout>
+        <RelativeLayout
+            BackgroundColor="Silver"
+            RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.099}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1}"
+            RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=0.901}">
+            <Button
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0}"
+                Style="{StaticResource navBarButton}"
+                Text="Rules"
+                Clicked="rulesClicked"/>
+            <Button
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.2}"
+                Style="{StaticResource navBarButton}"
+                Clicked="diceClicked"
+                Text="Die"/>
+            <Button
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.4}"
+                Style="{StaticResource navBarButton}"
+                Text="Conditions"
+                IsEnabled="true"
+                Clicked="conditionsClicked"/>
+            <Button
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.6}"
+                Style="{StaticResource navBarButton}"
+                Text="Notes"
+                Clicked="notesClicked"/>
+            <Button
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.8}"
+                Style="{StaticResource navBarButton}"
+                Text="Exit"
+                Clicked="exitClicked"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</ContentPage>

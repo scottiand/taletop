@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.PlayerGameplayViews.CharacterChooserPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar="false">
+        <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+	<StackLayout>
+        <Label Text="Choose Character"
+            Style="{StaticResource BasicLabel}"
+            FontSize="30"
+            HorizontalOptions="Center"/>
+        <Label
+            Style="{StaticResource BasicLabel}"
+            FontSize="20"
+            HorizontalOptions="Center">
+            <Label.Text>
+                <OnPlatform x:TypeArguments="x:String"
+                    iOS="Swipe left to delete"
+                    Android="Hold to delete"/>
+            </Label.Text>
+        </Label>
+     <!--   <ActivityIndicator BackgroundColor="{StaticResource fableDark}"
+            IsRunning="true"
+            IsVisible="false"
+            Color="White"
+            HorizontalOptions="Center"
+            x:Name="working"/>-->
+        <Button Text="New Character"
+            Style="{StaticResource MenuButton}"
+            HorizontalOptions="Fill"
+            Clicked="newCharacterClicked"/>
+        <StackLayout BackgroundColor="{StaticResource fableDark}"
+            Padding="2"
+            VerticalOptions="FillAndExpand">
+            <ListView x:Name="listView"
+
+                BackgroundColor="{StaticResource fableDark}"
+                SeparatorVisibility="None"
+                ItemSelected="Handle_ItemSelected"
+                HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:CharacterCell x:Name="characterCell">
+                            <local:CharacterCell.ContextActions>
+                                <MenuItem
+                                    Text="Delete"
+                                    IsDestructive="true"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="deleteClicked"/>
+                            </local:CharacterCell.ContextActions>
+                        </local:CharacterCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <Button Text="Cancel"
+            Style="{StaticResource MenuButton}"
+            HorizontalOptions="Fill"
+            Clicked="cancelClicked"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    x:Class="FableDevice.Views.CharacterCreationViews.BackgroundPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar = "false">
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+	<StackLayout>
+        <Label Style="{StaticResource BasicLabel}"
+            Text="{Binding name}"
+            FontSize="60">
+            <Label.Effects>
+                <effects:LabelSizeFontToFit/>
+            </Label.Effects>
+        </Label>
+        <ScrollView BackgroundColor="{StaticResource fablePurple}"
+            VerticalOptions="FillAndExpand"
+            Padding="20">
+            <StackLayout Spacing="10">
+                <Label Style="{StaticResource BasicLabel}"
+                    FontSize="20"
+                    Text="{Binding description}"/>
+                <StackLayout x:Name="examples">
+                    <Label Style="{StaticResource BasicLabel}"
+                        Text = "Examples"
+                        FontSize="25"/>
+                </StackLayout>
+                <Label Style="{StaticResource BasicLabel}"
+                    Text="Choose one stat to increase:"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"/>
+                <StackLayout Orientation="Horizontal">
+                    <Button Style="{StaticResource MenuButton}"
+                        x:Name="attributeOneButton"
+                        HorizontalOptions="FillAndExpand"
+                        FontSize="20"
+                        Clicked="attributeOneClicked"/>
+                    <Button Style="{StaticResource MenuButton}"
+                        x:Name="attributeTwoButton"
+                        HorizontalOptions="FillAndExpand"
+                        FontSize="20"
+                        Clicked="attributeTwoClicked"/>
+                </StackLayout>
+                <Label x:Name="abilitiesLabel"
+                    Style="{StaticResource BasicLabel}"
+                    FontSize="25"
+                    Text="Choose one Ability:"/>
+                <StackLayout x:Name="abilitiesStack"
+                    Padding="20,0,20,0"/>
+                <Label x:Name="freeItemsLabel"
+                    Style="{StaticResource BasicLabel}"
+                    FontSize="25"
+                    Text="You will start with the following items:"/>
+                <StackLayout x:Name="freeItemsStack"
+                    Padding="20,0,20,0">
+                </StackLayout>
+                <Label x:Name="itemSetsLabel"
+                    Style="{StaticResource BasicLabel}"
+                    FontSize="25"
+                    Text="Choose one item set:"/>
+                <StackLayout x:Name="itemSetsStack"
+                        Padding="20,0,20,0">
+                </StackLayout>
+                <Label x:Name="skillsLabel"
+                    Style="{StaticResource BasicLabel}"
+                    FontSize="25"
+                    Text="{Binding numSkill, StringFormat='Choose {0} skills:'}"/>
+                <StackLayout x:Name="skillsStack"
+                    Padding="20,0,20,0">
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal"
+                VerticalOptions="End">
+            <Button Style="{StaticResource CancelButton}"
+                Clicked="cancelClicked">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                        iOS="true"
+                        Android="false">
+                    </OnPlatform>
+                </Button.IsVisible>
+            </Button>
+            <Button Style="{StaticResource MenuButton}"
+                x:Name="finishButton"
+                Text="Finish"
+                HorizontalOptions="FillAndExpand"
+                />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    x:Class="FableDevice.Extensions.CharacterCell">
+    <StackLayout BackgroundColor="{StaticResource fableDark}"
+        Padding = "2">
+    	<StackLayout BackgroundColor="{StaticResource fablePurple}"
+            Orientation = "Horizontal"
+            Padding="13">
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <Label Text = "{Binding name}"
+                    TextColor= "White"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    VerticalOptions="Center">
+                    <Label.Effects>
+                        <effects:LabelSizeFontToFit/>
+                    </Label.Effects>
+                </Label>
+                <StackLayout Orientation="Horizontal"
+                    BindingContext="{Binding .statBlock}"
+                    Spacing="10">
+                    <Label Text="{Binding str, StringFormat='ATH: {0}'}"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="10"/>
+                    <Label Text="{Binding dex, StringFormat='EXP: {0}'}"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="10"/>
+                    <Label Text="{Binding wis, StringFormat='INT: {0}'}"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="10"/>
+                    <Label Text="{Binding cha, StringFormat='CHA: {0}'}"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="10"/>
+                </StackLayout>
+            </StackLayout>
+            <Label Text = "{Binding currSlashMax}"
+                TextColor= "White"
+                FontAttributes="Bold"
+                FontSize="30"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center">
+                <Label.Effects>
+                    <effects:LabelSizeFontToFit/>
+                </Label.Effects>
+            </Label>
+        </StackLayout>
+    </StackLayout>
+</ViewCell>

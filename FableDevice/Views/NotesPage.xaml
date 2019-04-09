@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.NotesPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,30,20,20"
+            Android="10">
+        </OnPlatform>
+    </ContentPage.Padding>
+	<StackLayout HorizontalOptions="FillAndExpand" Padding="0,10,0,0">
+        <Label x:Name="header"
+            Text="Notes"
+            Style="{StaticResource BasicLabel}"
+            FontSize="30"
+            HorizontalOptions="Center"/>
+        <Label/>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="noteStack"
+                Padding="10"/>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+         <!--   <Button Style="{StaticResource MenuButton}"
+                Text="New Folder"
+                HorizontalOptions="FillAndExpand"
+                IsEnabled="false"/>-->
+            <Button Style="{StaticResource MenuButton}"
+                Text="New Note"
+                HorizontalOptions="FillAndExpand"
+                Clicked="newNoteClicked"/>
+        </StackLayout>
+        <Button Style="{StaticResource MenuButton}"
+            Text="Back"
+            HorizontalOptions="Fill"
+            Clicked="backClicked"/>
+    </StackLayout>
+</ContentPage>

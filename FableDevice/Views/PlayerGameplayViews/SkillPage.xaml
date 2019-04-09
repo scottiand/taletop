@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.PlayerGameplayViews.SkillPage"
+    NavigationPage.HasNavigationBar="false"
+    BackgroundColor="{StaticResource fableSky}">
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+    <StackLayout Spacing="20">
+        <Label x:Name="header"
+            Text="Skills"
+            TextColor="White"
+            FontAttributes="Bold"
+            FontSize="40"
+            HorizontalOptions="Center"
+            VerticalTextAlignment="End"/>
+        <Label/>
+        <Frame Style="{StaticResource abilityFrame}">
+            <StackLayout>
+                <Label Style="{StaticResource BasicLabel}"
+                    FontSize="20"
+                    Text="{Binding abilityName}"
+                    HorizontalOptions="Center"/>
+                <Label Style="{StaticResource BasicLabel}"
+                    FontSize="15"
+                    Text="{Binding abilityDescription}"/>
+            </StackLayout>
+        </Frame>
+    	<ListView
+            x:Name="listView"
+            SeparatorVisibility="None"
+            RowHeight="60"
+            BackgroundColor="{StaticResource fableDark}"
+            ItemSelected="Handle_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <local:SkillCell/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Style="{StaticResource MenuButton}"
+            Text="Back"
+            HorizontalOptions="Fill"
+            Clicked="backClicked"/>
+    </StackLayout>
+</ContentPage>

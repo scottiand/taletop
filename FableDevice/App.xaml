@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FableDevice.App">
+	<Application.Resources>
+		<ResourceDictionary>
+            <x:String x:Key = "wil">Willpower</x:String> <!-- Strings -->
+            <x:String x:Key = "str">Athletics</x:String>
+            <x:String x:Key = "dex">Expertise</x:String>
+            <x:String x:Key = "wis">Intellect</x:String>
+            <x:String x:Key = "cha">Charisma</x:String>
+            <x:String x:Key = "attributes">Stats</x:String>
+            <x:String x:Key = "appName">Fable Device</x:String>
+            <x:String x:Key = "wilDesc">represents your character's will to fight on in tough situations. If your character's willpower reaches zero, they are forced to surrender.</x:String>
+            <x:String x:Key = "strDesc">represents your character's raw strength, endurance, and physical fitness.</x:String>
+            <x:String x:Key = "dexDesc">represents both your character's ability to move and react quickly, as well as their fine motor skills.</x:String>
+            <x:String x:Key = "wisDesc">represents your character's logical reasoning, insight, and creativity.</x:String>
+            <x:String x:Key = "chaDesc">represents your character's social skills, and their ability to persuade or deceive other people.</x:String>
+            
+            <Color x:Key = "fablePurple">#794dff</Color> <!-- Colors -->
+            <Color x:Key = "fableYellow">#ffce0a</Color>
+            <Color x:Key = "fableSky">#99ccff</Color>
+            <Color x:Key = "fableDark">Navy</Color>
+            <Color x:Key = "wilColor">#A10089</Color>
+            <Color x:Key = "nonColor">#A10089</Color>
+            <Color x:Key = "strColor">#8C090B</Color>
+            <Color x:Key = "dexColor">Green</Color>
+            <Color x:Key = "wisColor">#004BAD</Color>
+            <Color x:Key = "chaColor">#A29533</Color>
+            
+            <Style x:Key="MenuButton" TargetType = "Button"> <!-- Button Styles -->
+                <Setter Property="BackgroundColor" Value="{StaticResource fablePurple}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="CancelButton" TargetType="Button" BasedOn="{StaticResource MenuButton}">
+                <Setter Property="Text" Value="Cancel"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="WidthRequest" Value="70"/>
+            </Style>
+            <Style x:Key="statButton" TargetType="ContentView">
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+  <!--          <Style x:Key="statButton" TargetType="Button">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>-->
+            <Style x:Key="navBarButton" TargetType="Button">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="BackgroundColor" Value="Silver"/>
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.2}"/>
+                <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=1}"/>
+            </Style>
+            <Style x:Key="rerollButton" TargetType="Button" BasedOn="{StaticResource MenuButton}">
+                <Setter Property="Text" Value="Reroll"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="Grid.Row" Value="1"/>
+            </Style>
+            
+            <Style x:Key="BasicLabel" TargetType = "Label"> <!-- Label Styles -->
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="CenteredLabel" TargetType = "Label" BasedOn="{StaticResource BasicLabel}">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="statLabel" TargetType="Label"  BasedOn="{StaticResource BasicLabel}">
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+            </Style>
+            <Style x:Key="itemSkill" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="35"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="abilityFrame" TargetType="Frame"> <!-- Frame Styles -->
+                <Setter Property="OutlineColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource fableDark}"/>
+            </Style>
+
+            <!--BackgroundColor="{StaticResource fableDark}"
+            VerticalOptions="StartAndExpand"
+            HeightRequest="60"
+            TextColor="White"
+            FontSize="35"-->
+            <Style x:Key="BasicEntry" TargetType="Entry"> <!-- Entry Styles -->
+                <Setter Property="BackgroundColor" Value="{StaticResource fableDark}"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="35"/>
+            </Style>
+            <Style x:Key="BasicEditor" TargetType="Editor"> <!-- Entry Styles -->
+                <Setter Property="BackgroundColor" Value="{StaticResource fableDark}"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HeightRequest" Value="120"/>
+            </Style>
+
+        </ResourceDictionary>
+	</Application.Resources>
+</Application>

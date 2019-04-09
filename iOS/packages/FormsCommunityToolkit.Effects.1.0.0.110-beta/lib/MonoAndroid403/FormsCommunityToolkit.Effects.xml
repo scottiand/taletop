@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FormsCommunityToolkit.Effects</name>
+    </assembly>
+    <members>
+        <member name="T:FormsCommunityToolkit.Effects.EffectIds">
+            <summary>
+            Effect ids of all the available effects.
+            Can be used to resolve an effect from code.
+                e.g. MyEntry.Effects.Add(Effect.Resolve(EffectIds.ViewBlurEffect));
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.ViewBlur">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.ViewBlur"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.EntryCapitalizeKeyboard">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.EntryCapitalizeKeyboard"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.SwitchChangeColor">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.SwitchChangeColor"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.PickerChangeColor">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.PickerChangeColor"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.EntryClear">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.EntryClear"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.LabelCustomFont">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.LabelCustomFont"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.EntryDisableAutoCorrect">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.EntryDisableAutoCorrect"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.EntryItalicPlaceholder">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.EntryItalicPlaceholder"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.LabelMultiLine">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.LabelMultiLine"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.EntryRemoveBorder">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.EntryRemoveBorder"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.EntryRemoveLine">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.EntryRemoveLine"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.SearchBarSuggestion">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.SearchBarSuggestion"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.EntrySelectAllText">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.EntrySelectAllText"/>
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.EffectIds.LabelSizeFontToFit">
+            <summary>
+            Id for <see cref="P:FormsCommunityToolkit.Effects.EffectIds.LabelSizeFontToFit"/>
+            </summary>
+        </member>
+        <member name="T:FormsCommunityToolkit.Effects.EntryDisableAutoCorrect">
+            <summary>
+            When attached to a Xamarin.Forms.Entry control, disables auto-suggestion, auto-capitilisation and auto-correction for entered text.
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.LabelCustomFont.FontPath">
+            <summary>
+            Only needed on Android, FontFamilyName can be disregarded
+            </summary>
+            <value>The font path.</value>
+        </member>
+        <member name="P:FormsCommunityToolkit.Effects.LabelCustomFont.FontFamilyName">
+            <summary>
+            Only needed on iOS, FontPath can be disregarded
+            </summary>
+            <value>The name of the font family.</value>
+        </member>
+    </members>
+</doc>

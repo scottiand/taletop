@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FormsCommunityToolkit.Effects.Android</name>
+    </assembly>
+    <members>
+        <member name="M:FormsCommunityToolkit.Effects.Droid.Effects.Init">
+            <summary>
+            This is needed to ensure iOS loads the assembly with the effects in it
+            </summary>
+        </member>
+        <member name="T:FormsCommunityToolkit.Effects.Droid.SwitchChangeColor">
+            <summary>
+            http://stackoverflow.com/questions/11253512/change-on-color-of-a-switch
+            </summary>
+        </member>
+    </members>
+</doc>

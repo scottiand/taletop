@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{266FF84B-6268-4E4E-9743-8549ADBE87CF}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FableDevice.iOS" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.FableDevice.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.4FA95ADC-20C6-4919-8BD1-BA2A47E3135B" />
+</Properties>

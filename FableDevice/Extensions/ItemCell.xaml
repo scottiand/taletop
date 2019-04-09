@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Extensions.ItemCell"
+    >
+    <Grid
+        BackgroundColor="{StaticResource fableDark}"
+        Padding="2"
+        RowSpacing = "0"
+        ColumnSpacing = "0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.5*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row = "0" Grid.Column ="0"
+            Style="{StaticResource BasicLabel}"
+            BackgroundColor="{Binding color}"
+            Text="{Binding name, StringFormat='  {0}'}"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill"
+            VerticalTextAlignment="Center"/>
+        <BoxView Grid.Row = "0" Grid.Column = "1"
+            BackgroundColor="{Binding color}"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill"/>
+        <Label Grid.Row = "0" Grid.Column ="1"
+            Style="{StaticResource BasicLabel}"
+            Text="{Binding uses, StringFormat='{0} uses'}"
+            IsVisible="{Binding limited}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+        <Label Grid.Row = "1" Grid.Column ="0"
+            Grid.ColumnSpan="2"
+            Style="{StaticResource BasicLabel}"
+            BackgroundColor="{Binding color}"
+            Text="{Binding description, StringFormat='  {0}'}"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill"
+            VerticalTextAlignment="Center"
+            LineBreakMode="TailTruncation"
+            FontAttributes="Italic"/>
+    </Grid>
+</ViewCell>

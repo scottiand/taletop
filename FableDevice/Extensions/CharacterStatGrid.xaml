@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    x:Class="FableDevice.Extensions.CharacterStatGrid"
+    VerticalOptions="FillAndExpand">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height=".4*"/>
+    </Grid.RowDefinitions>
+    <local:ContentButton Grid.Row="0" Grid.Column="0"
+        BackgroundColor="{StaticResource fablePurple}"
+        Grid.RowSpan="2"
+        HorizontalOptions="Fill"
+        VerticalOptions="FillAndExpand"
+        x:Name="wilButton"/>
+    <local:ContentButton Grid.Row="0" Grid.Column="2"
+        x:Name="dexButton"
+        BackgroundColor="{StaticResource dexColor}"/>
+    <local:ContentButton Grid.Row="0" Grid.Column="1"
+        x:Name="strButton"
+        BackgroundColor="{StaticResource strColor}"/>
+    <local:ContentButton Grid.Row="1" Grid.Column="1"
+        x:Name="wisButton"
+        BackgroundColor="{StaticResource wisColor}"/>
+    <local:ContentButton Grid.Row="1" Grid.Column="2"
+        x:Name="chaButton"
+        BackgroundColor="{StaticResource chaColor}"/>
+    <Label Grid.Row="2" Grid.Column="0"
+        Style="{StaticResource CenteredLabel}"
+        Text="{StaticResource wil}"/>
+    <Label Grid.Row="2" Grid.Column="1"
+        Grid.ColumnSpan="2"
+        Style="{StaticResource CenteredLabel}"
+        Text="{StaticResource attributes}"/>
+</Grid>

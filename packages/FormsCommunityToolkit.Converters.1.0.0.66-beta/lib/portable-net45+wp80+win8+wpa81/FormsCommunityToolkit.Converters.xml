@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FormsCommunityToolkit.Converters</name>
+    </assembly>
+    <members>
+        <member name="T:FormsCommunityToolkit.Converters.BooleanToObjectConverter`1">
+            <summary>
+            Boolean to object converter.
+            </summary>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.BooleanToObjectConverter`1.Init">
+            <summary>
+            Init this instance.
+            </summary>
+        </member>
+        <member name="P:FormsCommunityToolkit.Converters.BooleanToObjectConverter`1.FalseObject">
+            <summary>
+            Gets or sets the false object.
+            </summary>
+            <value>The false object.</value>
+        </member>
+        <member name="P:FormsCommunityToolkit.Converters.BooleanToObjectConverter`1.TrueObject">
+            <summary>
+            Gets or sets the true object.
+            </summary>
+            <value>The true object.</value>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.BooleanToObjectConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <param name="value">To be added.</param>
+            <param name="targetType">To be added.</param>
+            <param name="parameter">To be added.</param>
+            <param name="culture">To be added.</param>
+            <summary>
+            Convert the specified value, targetType, parameter and culture.
+            </summary>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.BooleanToObjectConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <param name="value">To be added.</param>
+            <param name="targetType">To be added.</param>
+            <param name="parameter">To be added.</param>
+            <param name="culture">To be added.</param>
+            <summary>
+            Converts the back.
+            </summary>
+            <returns>The back.</returns>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.HasDataConverter.Init">
+            <summary>
+            Init this instance.
+            </summary>
+        </member>
+        <member name="T:FormsCommunityToolkit.Converters.HexToColorConverter">
+            <summary>
+            Hex to color converter.
+            </summary>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.HexToColorConverter.Init">
+            <summary>
+            Init this instance.
+            </summary>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.HexToColorConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <param name="value">To be added.</param>
+            <param name="targetType">To be added.</param>
+            <param name="parameter">To be added.</param>
+            <param name="culture">To be added.</param>
+            <summary>
+            Convert the specified value, targetType, parameter and culture.
+            </summary>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.HexToColorConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <param name="value">To be added.</param>
+            <param name="targetType">To be added.</param>
+            <param name="parameter">To be added.</param>
+            <param name="culture">To be added.</param>
+            <summary>
+            Converts the back.
+            </summary>
+            <returns>The back.</returns>
+        </member>
+        <member name="T:FormsCommunityToolkit.Converters.InvertedBooleanConverter">
+            <summary>
+            Inverted boolen converter.
+            </summary>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.InvertedBooleanConverter.Init">
+            <summary>
+            Init this instance.
+            </summary>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.InvertedBooleanConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <param name="value">To be added.</param>
+            <param name="targetType">To be added.</param>
+            <param name="parameter">To be added.</param>
+            <param name="culture">To be added.</param>
+            <summary>
+            Convert the specified value, targetType, parameter and culture.
+            </summary>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.InvertedBooleanConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <param name="value">To be added.</param>
+            <param name="targetType">To be added.</param>
+            <param name="parameter">To be added.</param>
+            <param name="culture">To be added.</param>
+            <summary>
+            Converts the back.
+            </summary>
+            <returns>The back.</returns>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.LowerTextConverter.Init">
+            <summary>
+            Init this instance.
+            </summary>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.UpperTextConverter.Init">
+            <summary>
+            Init this instance.
+            </summary>
+        </member>
+        <member name="T:FormsCommunityToolkit.Converters.ValueConversionAttribute">
+            <summary>
+            Represents an attribute that allows the author of a value converter to specify the data types involved in the implementation of the converter.
+            
+            The ValueConversionAttribute attribute enables designer tools, such as WPF Designer for Visual Studio or MFractor for Visual Studio for Mac, to discover value converters to assist developers in setting up bindings and provide code warnings. The attribute is not required for a value converter to work, but it is a good practice to use it.
+            </summary>
+        </member>
+        <member name="M:FormsCommunityToolkit.Converters.ValueConversionAttribute.#ctor(System.Type,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FormsCommunityToolkit.Converters.ValueConversionAttribute"/> class.
+            </summary>
+            <param name="input">The expected input type for this value converter. It is recommended to use a typeof(MyType) expression to provide the type.</param>
+            <param name="output">The expected output type for this value converter. It is recommended to use a typeof(MyType) expression to provide the type.</param>
+        </member>
+        <member name="P:FormsCommunityToolkit.Converters.ValueConversionAttribute.ParameterType">
+            <summary>
+            The type that can be provided as the parameter for the value converter.
+            </summary>
+            <value>The type of the parameter.</value>
+        </member>
+    </members>
+</doc>

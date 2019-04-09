@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.CharacterCreationViews.ItemSetPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar = "false">
+        <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+    <StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand">
+	    <StackLayout
+            BackgroundColor="{StaticResource fablePurple}"
+            Padding="20"
+            Spacing="10">
+            <Label Style="{StaticResource BasicLabel}"
+                FontSize="40"
+                Text="{Binding name}"/>
+            <BoxView Color="White" HeightRequest="1"/>
+            <Label Style="{StaticResource BasicLabel}"
+                FontSize = "20"
+                Text = "{Binding description}"/>
+            <BoxView Color="White" HeightRequest="1"/>
+                <Label Style="{StaticResource BasicLabel}"
+                    Text="This item set includes:"
+                    FontSize="20"/>
+            <StackLayout x:Name="contents"
+                Padding="20,0,20,0"/>
+        </StackLayout>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal"
+                VerticalOptions="End">
+            <Button Style="{StaticResource CancelButton}"
+                Clicked="cancelClicked">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                        iOS="true"
+                        Android="false">
+                    </OnPlatform>
+                </Button.IsVisible>
+            </Button>
+            <Button Style="{StaticResource MenuButton}"
+                x:Name="finishButton"
+                Text="Select"
+                HorizontalOptions="FillAndExpand"
+                Clicked="selectClicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

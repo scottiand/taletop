@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FableDevice" x:Class="FableDevice.FableDevicePage"
+    Padding="0,20,0,0">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Activated="onAdd"/>
+        <ToolbarItem Text="Update" Activated="onUpdate"/>
+        <ToolbarItem Text="Delete" Activated="onDelete"/>
+    </ContentPage.ToolbarItems>
+	<ListView x:Name = "listView">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding name}" Detail="{Binding id}">
+                    <TextCell.ContextActions>
+                        <MenuItem
+                            Text="Visit"
+                            IsDestructive="false"
+                            CommandParameter="{Binding .}"
+                            Clicked="Handle_ItemSelected"/>
+                    </TextCell.ContextActions>
+                </TextCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

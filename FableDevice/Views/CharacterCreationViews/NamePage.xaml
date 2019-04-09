@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    x:Class="FableDevice.Views.CharacterCreationViews.NamePage"
+    NavigationPage.HasNavigationBar = "false"
+    BackgroundColor="{StaticResource fableSky}">
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,100,20,20"
+            Android="20,80,20,20">
+        </OnPlatform>
+    </ContentPage.Padding>
+	<StackLayout>
+        <Label Style="{StaticResource BasicLabel}"
+            Text="Enter Name:"
+            FontSize="50"
+            HorizontalOptions="Center"
+            VerticalOptions="Start">
+            <Label.Effects>
+                <effects:LabelSizeFontToFit/>
+            </Label.Effects>
+        </Label>
+        <Entry x:Name="entry"
+            Style="{StaticResource BasicEntry}"
+            Placeholder="Jane Doe"/>
+        <StackLayout Orientation="Horizontal"
+                VerticalOptions="End">
+            <Button Style="{StaticResource CancelButton}"
+                Clicked="cancelClicked">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                        iOS="true"
+                        Android="false">
+                    </OnPlatform>
+                </Button.IsVisible>
+            </Button>
+            <Button Style="{StaticResource MenuButton}"
+                x:Name="finishButton"
+                Text="Finish"
+                HorizontalOptions="FillAndExpand"
+                Clicked="finishClicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

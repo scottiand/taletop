@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:util="clr-namespace:FableDevice.Models.Utilities"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    x:Class="FableDevice.Views.DigitalDicePage"
+    NavigationPage.HasNavigationBar="false"
+    BackgroundColor="{StaticResource fableSky}">
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+ <!--   <ContentPage.Resources>
+        <ResourceDictionary>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
+	<RelativeLayout>
+        <Image x:Name="die"
+            IsVisible="false"
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.9}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.9}"
+            RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.05}"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=0.1}"/>
+        <Button Style="{StaticResource MenuButton}"
+            Text="Roll!"
+            Clicked="rollClicked"
+            x:Name="rollButton"
+            FontSize="40"
+            HorizontalOptions="FillAndExpand"
+            RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=.76}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=.15}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1}"/>
+        <util:NoPaddingButton Style="{StaticResource MenuButton}"
+            Text="   Back   "
+            Clicked="backClicked"
+            HorizontalOptions="FillAndExpand"
+            RelativeLayout.YConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=.93}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=.07}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1}"/>
+    </RelativeLayout>
+</ContentPage>

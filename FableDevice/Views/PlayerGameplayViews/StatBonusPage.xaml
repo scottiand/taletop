@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns:util="clr-namespace:FableDevice.Models.Utilities"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    x:Class="FableDevice.Views.PlayerGameplayViews.StatBonusPage"
+    BackgroundColor="{Binding backgroundColor}"
+    NavigationPage.HasNavigationBar = "false">
+    <ContentPage.Padding> <!-- PADDING -->
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="0,20,0,0"
+            Android="0">
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Resources> <!-- RESOURCES -->
+        <ResourceDictionary>
+            <Style x:Key="gridButton" TargetType="Button">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="Silver"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style x:Key="removeButton" TargetType="Button">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="Text" Value="X"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+                <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=.09}"/>
+                <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.48}"/>
+            </Style>
+            <Style x:Key="modifierButton" TargetType="Button" BasedOn="{StaticResource MenuButton}">
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="BackgroundColor" Value="Gray"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+	<RelativeLayout> <!-- CALCULATION LABEL display a calculation of the total number the player rolls against -->
+        <util:NoPaddingButton Style="{StaticResource MenuButton}"
+            x:Name="conditionButton"
+            Text="0"
+            TextColor="Black"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            FontSize="25"
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.12}"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=.02}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=0.12}"
+            RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=.84}"
+            Clicked="conditionClicked"/>
+        <Label 
+            x:Name = "calculationLabel"
+            TextColor = "White"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.25}"
+            FontSize="50"/> <!-- BIG NUMBER displays the players stat +item and skill loudly and proudly -->
+            <StackLayout x:Name = "bigNumber"
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.0}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.25}">
+        <Label
+            Style = "{StaticResource CenteredLabel}"
+            FontSize="170"
+            >
+            <Label.Effects>
+                <effects:LabelSizeFontToFit/>
+            </Label.Effects>
+        </Label> <!-- ROLL GRID displays the reults when the player tells the app to roll for them. -->
+        </StackLayout>
+        <local:ContentButton 
+            IsVisible = "false"
+            x:Name="die"
+            HorizontalOptions="Center"
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.04}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.22}"
+            Clicked="rerollClicked"/><!-- STAT BAR This displays the long name of the current stat -->
+        <StackLayout Orientation="Horizontal"
+            BackgroundColor="Black"
+            VerticalOptions="FillAndExpand"
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.12}"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.35}"
+            Padding="10">
+            <Button Style="{StaticResource modifierButton}"
+                Text="-"
+                Clicked="minusClicked"
+                x:Name="minusButton"/>
+            <Label
+                Text="{Binding statNice}"
+                TextColor="White"
+                FontSize="50"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <Label.Effects>
+                    <effects:LabelSizeFontToFit/>
+                </Label.Effects>
+            </Label>
+            <Button Style="{StaticResource modifierButton}"
+                Text="+"
+                Clicked="plusClicked"
+                x:Name="plusButton"/>
+        </StackLayout> <!-- ITEM SLOT This is where the item goes -->
+        <local:ContentButton
+            x:Name = "itemButton"
+            BackgroundColor="Silver"
+            VerticalOptions="Fill"
+            Clicked="itemClicked"
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=.5}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=.15}"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=.47}"/>
+        <Label
+                Text="Item"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=.5}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.14}"
+                RelativeLayout.YConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.47}"/>
+        <Button
+            x:Name="removeItemButton"
+            Clicked="removeItemClicked"
+            Style = "{StaticResource removeButton}"
+            RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=.02}">
+            <Button.Effects>
+                <effects:LabelSizeFontToFit/>
+            </Button.Effects>
+        </Button><!-- SKILL SLOT this is where your skill goes -->
+        <local:ContentButton x:Name="skillButton"
+            BackgroundColor="Gray"
+            VerticalOptions="FillAndExpand"
+            Clicked="skillClicked"
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=.5}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=.15}"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Height,
+                Factor=.47}"
+            RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=.5}"/>
+        <Label
+                Text="Skill"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=.5}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.14}"
+                RelativeLayout.YConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.47}"
+                RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=.5}"/>
+        <Button
+            x:Name="removeSkillButton"
+            Clicked="removeSkillClicked"
+            Style = "{StaticResource removeButton}"
+            RelativeLayout.XConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=.52}">
+            <Button.Effects>
+                <effects:LabelSizeFontToFit/>
+            </Button.Effects>
+        </Button><!-- STATUS LABEL gives the player information on their die roll, or tells them to roll themselves -->
+        <Label
+            x:Name="statusLabel"
+            Text="Roll your dice!"
+            TextColor="White"
+            FontSize="45"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=1}"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.65}"/> <!-- BUTTON GRID Provides the player with the ability to roll, go back, or see skills or items -->
+        <Grid
+            RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=.8}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.2}"
+            RelativeLayout.YConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Height,
+                    Factor=.77}"
+            RelativeLayout.XConstraint="{ConstraintExpression 
+                    Type=RelativeToParent,
+                    Property=Width,
+                    Factor=.1}">
+            <Button Grid.Row="0" Grid.Column="0"
+                Grid.ColumnSpan="3"
+                x:Name="rollButton"
+                Text="Roll for me"
+                Style="{StaticResource gridButton}"
+                Clicked="rollClicked"/>
+            <Button Grid.Row="1" Grid.Column="0"
+                Text="Back"
+                Style="{StaticResource gridButton}"
+                Clicked="backClicked"/>
+            <Button Grid.Row="1" Grid.Column="1"
+                Text="Items"
+                Style="{StaticResource gridButton}"
+                Clicked="itemClicked"/>
+            <Button Grid.Row="1" Grid.Column="2"
+                Text="Skills"
+                Style="{StaticResource gridButton}"
+                Clicked="skillClicked"/>
+        </Grid>
+    </RelativeLayout>
+</ContentPage>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.PlayerGameplayViews.CharacterInfoPage"
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns:util="clr-namespace:FableDevice.Models.Utilities"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    NavigationPage.HasNavigationBar = "false"
+    BackgroundColor="{StaticResource fableSky}">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20"/>
+    </ContentPage.Padding>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="detailLabel" TargetType="Label" BasedOn="{StaticResource BasicLabel}">
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="Grid.Column" Value="0"/>
+            </Style>
+            <Style x:Key="detailChoiceLabel" TargetType="Label" BasedOn="{StaticResource detailLabel}">
+                <Setter Property="Grid.Column" Value="1"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout VerticalOptions="FillAndExpand">
+        <ScrollView VerticalOptions="FillAndExpand">
+        	<StackLayout Spacing="10">
+                <Frame Style="{StaticResource abilityFrame}" HasShadow="false">
+                    <StackLayout>
+                        <Label Style="{StaticResource BasicLabel}"
+                            Text="{Binding name}"
+                            FontSize="40"
+                            x:Name="nameDisplay">
+                            <Label.Effects>
+                                <effects:LabelSizeFontToFit/>
+                            </Label.Effects>
+                         </Label>
+                        <Label Style="{StaticResource BasicLabel}"
+                            Text="{Binding background}"
+                            FontSize="30">
+                            <Label.Effects>
+                                <effects:LabelSizeFontToFit/>
+                            </Label.Effects>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+                <local:CharacterStatGrid x:Name="statGrid"/>
+                <Frame Style="{StaticResource abilityFrame}" HasShadow="false" VerticalOptions="FillAndExpand">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                            <Label Grid.Row = "0"
+                                Style="{StaticResource detailLabel}"
+                                Text="Age:"
+                                x:Name="ageLabel"/>
+                            <Label Grid.Row = "1"
+                                Style="{StaticResource detailLabel}"
+                                Text="Height:"
+                                x:Name="heightLabel"/>
+                            <Label Grid.Row = "2"
+                                Style="{StaticResource detailLabel}"
+                                Text="Ethnicity:"
+                                x:Name="ethnicityLabel"/>
+                            <Label Grid.Row = "3"
+                                Style="{StaticResource detailLabel}"
+                                Text="Gender:"
+                                x:Name="identityLabel"/>
+                            <Label Grid.Row = "0"
+                                Style="{StaticResource detailChoiceLabel}"
+                                x:Name="ageDisplay">
+                                <Label.Effects>
+                                    <effects:LabelSizeFontToFit/>
+                                </Label.Effects>
+                            </Label>
+                            <Label Grid.Row = "1"
+                                Style="{StaticResource detailChoiceLabel}"
+                                x:Name="heightDisplay">
+                                <Label.Effects>
+                                    <effects:LabelSizeFontToFit/>
+                                </Label.Effects>
+                            </Label>
+                            <Label Grid.Row = "2"
+                                Style="{StaticResource detailChoiceLabel}"
+                                x:Name="ethnicityDisplay">
+                                <Label.Effects>
+                                    <effects:LabelSizeFontToFit/>
+                                </Label.Effects>
+                            </Label>
+                            <Label Grid.Row = "3"
+                                Style="{StaticResource detailChoiceLabel}"
+                                x:Name="identityDisplay">
+                                <Label.Effects>
+                                    <effects:LabelSizeFontToFit/>
+                                </Label.Effects>
+                            </Label>
+                        <Label Grid.Row = "4" Grid.ColumnSpan="2"
+                            Style="{StaticResource detailLabel}"
+                            Text="Description:"
+                            x:Name="descriptionLabel">
+                        </Label>
+                        <Label Grid.Row = "5" Grid.ColumnSpan="2"
+                            Style="{StaticResource BasicLabel}"
+                            Text="{Binding description, StringFormat='      {0}'}"
+                            x:Name="descriptionDisplay">
+                        </Label>
+                        <Label Grid.Row = "6" Grid.ColumnSpan="2"
+                            Style="{StaticResource detailLabel}"
+                            Text="Personality:"
+                            x:Name="personalityLabel">
+                        </Label>
+                        <Label Grid.Row = "7" Grid.ColumnSpan="2"
+                            Style="{StaticResource BasicLabel}"
+                            Text="{Binding personality, StringFormat='      {0}'}"
+                            x:Name="personalityDisplay">
+                        </Label>
+                        <Button Grid.Row = "8" Grid.ColumnSpan="2"
+                            Style="{StaticResource MenuButton}"
+                            HorizontalOptions="FillAndExpand"
+                            Text="Edit Details"
+                            Clicked="editClicked"/>
+                        <Button Grid.Row = "9" Grid.ColumnSpan="2"
+                            Style="{StaticResource MenuButton}"
+                            HorizontalOptions="FillAndExpand"
+                            Text="Change Name"
+                            Clicked="nameClicked"/>
+                    </Grid>
+<!--                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <StackLayout HorizontalOptions = "Start" Spacing="0">
+                                <Label Style="{StaticResource detailLabel}"
+                                    Text="Age:"
+                                    x:Name="ageLabel"/>
+                                <Label Style="{StaticResource detailLabel}"
+                                    Text="Height:"
+                                    x:Name="heightLabel"/>
+                                <Label Style="{StaticResource detailLabel}"
+                                    Text="Ethnicity:"
+                                    x:Name="ethnicityLabel"/>
+                                <Label Style="{StaticResource detailLabel}"
+                                    Text="Gender:"
+                                    x:Name="identityLabel"/>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                                <Label Style="{StaticResource detailLabel}"
+                                    x:Name="ageDisplay">
+                                    <Label.Effects>
+                                        <effects:SizeFontToFitEffect/>
+                                    </Label.Effects>
+                                </Label>
+                                <Label Style="{StaticResource detailLabel}"
+                                    x:Name="heightDisplay">
+                                    <Label.Effects>
+                                        <effects:SizeFontToFitEffect/>
+                                    </Label.Effects>
+                                </Label>
+                                <Label Style="{StaticResource detailLabel}"
+                                    x:Name="ethnicityDisplay">
+                                    <Label.Effects>
+                                        <effects:SizeFontToFitEffect/>
+                                    </Label.Effects>
+                                </Label>
+                                <Label Style="{StaticResource detailLabel}"
+                                    x:Name="identityDisplay">
+                                    <Label.Effects>
+                                        <effects:SizeFontToFitEffect/>
+                                    </Label.Effects>
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                        <Label Style="{StaticResource detailLabel}"
+                            Text="Description:"
+                            x:Name="descriptionLabel">
+                        </Label>
+                        <Label Style="{StaticResource BasicLabel}"
+                            Text="{Binding description, StringFormat='      {0}'}"
+                            x:Name="descriptionDisplay">
+                        </Label>
+                        <Label Style="{StaticResource detailLabel}"
+                            Text="Personality:"
+                            x:Name="personalityLabel">
+                        </Label>
+                        <Label Style="{StaticResource BasicLabel}"
+                            Text="{Binding personality, StringFormat='      {0}'}"
+                            x:Name="personalityDisplay">
+                        </Label>
+                        <Button Style="{StaticResource MenuButton}"
+                            HorizontalOptions="FillAndExpand"
+                            Text="Edit Details"
+                            Clicked="editClicked"/>
+                        <Button Style="{StaticResource MenuButton}"
+                            HorizontalOptions="FillAndExpand"
+                            Text="Change Name"
+                            Clicked="nameClicked"/>
+                    </StackLayout>-->
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+            <Button Style="{StaticResource MenuButton}"
+                x:Name="backButton"
+                Text="Back"
+                HorizontalOptions="FillAndExpand"
+                Clicked="cancelClicked"
+                />
+    </StackLayout>
+</ContentPage>

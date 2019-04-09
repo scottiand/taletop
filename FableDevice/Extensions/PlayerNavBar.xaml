@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Extensions.PlayerNavBar"
+    BackgroundColor="Gray"
+    RelativeLayout.WidthConstraint="{ConstraintExpression
+        Type=RelativeToParent,
+        Property=Width,
+        Factor=1}"
+    RelativeLayout.HeightConstraint="{ConstraintExpression
+        Type=RelativeToParent,
+        Property=Height,
+        Factor=0.099}"
+    RelativeLayout.YConstraint="{ConstraintExpression
+        Type=RelativeToParent,
+        Property=Height,
+        Factor=0.901}">
+    <Button
+        RelativeLayout.XConstraint="{ConstraintExpression 
+            Type=RelativeToParent,
+            Property=Width,
+            Factor=0}"
+        Style="{StaticResource navBarButton}"
+        Text="Self"
+        Clicked="characterClicked"/>
+    <Button
+        RelativeLayout.XConstraint="{ConstraintExpression 
+            Type=RelativeToParent,
+            Property=Width,
+            Factor=0.2}"
+        Style="{StaticResource navBarButton}"
+        Text="Notes"
+        Clicked="notesClicked"/>
+    <Button
+        RelativeLayout.XConstraint="{ConstraintExpression 
+            Type=RelativeToParent,
+            Property=Width,
+            Factor=0.4}"
+        Style="{StaticResource navBarButton}"
+        Text="Die"
+        Clicked="diceClicked"/>
+    <Button
+        RelativeLayout.XConstraint="{ConstraintExpression 
+            Type=RelativeToParent,
+            Property=Width,
+            Factor=0.6}"
+        Style="{StaticResource navBarButton}"
+        Text="Rules"
+        Clicked="rulesClicked"/>
+    <Button
+        RelativeLayout.XConstraint="{ConstraintExpression 
+            Type=RelativeToParent,
+            Property=Width,
+            Factor=0.8}"
+        Style="{StaticResource navBarButton}"
+        Text="Exit"
+        Clicked="exitClicked"/>
+</RelativeLayout>

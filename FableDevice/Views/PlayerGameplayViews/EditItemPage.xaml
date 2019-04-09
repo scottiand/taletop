@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.PlayerGameplayViews.EditItemPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar = "false">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="qualityButton" TargetType="Button" BasedOn="{StaticResource MenuButton}">
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="IsEnabled" Value="false"/>
+                <Setter Property="Opacity" Value=".5"/>
+            </Style>
+            <Style x:Key="plusMinusButton" TargetType="Button" BasedOn="{StaticResource MenuButton}">
+                <Setter Property="VerticalOptions" Value="Fill"/>
+                <Setter Property="WidthRequest" Value="45"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+	<StackLayout>
+        <Entry x:Name="nameEntry"
+            Style="{StaticResource BasicEntry}"
+            Placeholder="Item Name"
+            Text="{Binding name}"
+            VerticalOptions="Start">
+        </Entry>
+        <Editor x:Name="descriptionEditor"
+            Text="{Binding description}"
+            TextColor="White"
+            BackgroundColor="{StaticResource fableDark}"
+            VerticalOptions="FillAndExpand">
+        </Editor>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Uses: "
+                FontAttributes="Bold"
+                TextColor="{StaticResource fableDark}"
+                FontSize="35"
+                VerticalOptions="Center"
+            />
+            <Button Style="{StaticResource plusMinusButton}"
+                Text="-"
+                x:Name="minusButton"
+                Clicked="minusClicked"/>
+            <Entry Style="{StaticResource BasicEntry}"
+                Text="{Binding uses}"
+                x:Name="usesEntry"
+                HorizontalOptions="FillAndExpand"
+                Keyboard="Numeric"
+                HorizontalTextAlignment="Center"
+                IsEnabled="false"/>
+            <Button Style="{StaticResource plusMinusButton}"
+                Text="+"
+                x:Name="plusButton"
+                Clicked="plusClicked"/>
+            <Button Style="{StaticResource MenuButton}"
+                x:Name="limitedToggleButton"
+                Clicked="limitedToggleClicked"
+                Text="&#8734;"
+                FontSize="20"
+                VerticalOptions="Fill"
+                BackgroundColor="{StaticResource fableYellow}"
+                WidthRequest="45"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal"
+                VerticalOptions="End">
+            <Button Style="{StaticResource CancelButton}"
+                Clicked="cancelClicked">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                        iOS="true"
+                        Android="false">
+                    </OnPlatform>
+                </Button.IsVisible>
+            </Button>
+            <Button Style="{StaticResource MenuButton}"
+                x:Name="finishButton"
+                Text="Finish"
+                HorizontalOptions="FillAndExpand"
+                Clicked="finishClicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

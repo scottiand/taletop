@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:NoteView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:util="clr-namespace:FableDevice.Models.Utilities"
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    x:Class="FableDevice.Extensions.SimpleNoteView"
+    VerticalOptions="StartAndExpand">
+    <Frame Style="{StaticResource abilityFrame}">
+    	<!--<StackLayout HorizontalOptions="FillAndExpand">-->
+            <Grid IsVisible="true"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                x:Name="grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column = "0"
+                    x:Name="nameLabel"
+                    Style="{StaticResource BasicLabel}"
+                    Text = "Note Title"
+                    FontSize = "22"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="true">
+                    <Label.Effects>
+                        <effects:LabelSizeFontToFit/>
+                    </Label.Effects>
+                </Label>
+                <Entry Grid.Row="0" Grid.Column = "0"
+                    Style="{StaticResource BasicEntry}"
+                    HorizontalOptions="Fill"
+                    IsVisible="false"
+                    x:Name="nameEntry"
+                    FontSize="22">
+                </Entry>
+                <util:NoPaddingButton Grid.Row="0" Grid.Column = "1"
+                    Style="{StaticResource MenuButton}"
+                    HorizontalOptions="End"
+                    Text="    Delete    "
+                    x:Name="deleteButton"
+                    BackgroundColor="{StaticResource strColor}"
+                    IsVisible="false"
+                    FontSize="15"/>
+                <util:NoPaddingButton Grid.Row="0" Grid.Column = "2"
+                    Style="{StaticResource MenuButton}"
+                    HorizontalOptions="End"
+                    Text="    Edit    "
+                    x:Name="editButton"
+                    Clicked="editClicked"
+                    FontSize="15">
+                </util:NoPaddingButton>
+            
+                <Label Grid.Row = "1" Grid.ColumnSpan="3"
+                    x:Name="description"
+                    Style="{StaticResource BasicLabel}"
+                    Text = "    Note Description"
+                    FontSize = "20"
+                    IsVisible="true">
+                </Label>
+                <Editor Grid.Row = "1" Grid.ColumnSpan="3"
+                    Style="{StaticResource BasicEditor}"
+                    IsVisible="false"
+                    x:Name="descriptionEditor">
+                </Editor>
+            </Grid>
+       <!-- </StackLayout>-->
+    </Frame>
+</local:NoteView>

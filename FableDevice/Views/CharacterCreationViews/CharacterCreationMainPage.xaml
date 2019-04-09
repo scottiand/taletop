@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:util="clr-namespace:FableDevice.Models.Utilities"
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+    x:Class="FableDevice.Views.CharacterCreationViews.CharacterCreationMainPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20"/>
+    </ContentPage.Padding>
+    <ScrollView>
+
+	<StackLayout Spacing = "10">
+        <Label Style="{StaticResource CenteredLabel}"
+            Text="Character Creation"
+            FontSize="30"
+            HorizontalOptions="Center"/>
+            <local:CharacterStatGrid x:Name="statGrid"/>
+  <!--      <Grid VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height=".4*"/>
+            </Grid.RowDefinitions>
+            <local:ContentButton Grid.Row="0" Grid.Column="0"
+                BackgroundColor="{StaticResource fablePurple}"
+                Grid.RowSpan="2"
+                HorizontalOptions="Fill"
+                VerticalOptions="FillAndExpand"
+                Clicked="willClicked"
+                x:Name="wilButton"/>
+            <local:ContentButton Grid.Row="0" Grid.Column="2"
+                x:Name="dexButton"
+                BackgroundColor="{StaticResource dexColor}"
+                Clicked="dexClicked"/>
+            <local:ContentButton Grid.Row="0" Grid.Column="1"
+                x:Name="strButton"
+                BackgroundColor="{StaticResource strColor}"
+                Clicked="strClicked"/>
+            <local:ContentButton Grid.Row="1" Grid.Column="1"
+                x:Name="wisButton"
+                BackgroundColor="{StaticResource wisColor}"
+                Clicked="wisClicked"/>
+            <local:ContentButton Grid.Row="1" Grid.Column="2"
+                x:Name="chaButton"
+                BackgroundColor="{StaticResource chaColor}"
+                Clicked="chaClicked"/>
+            <Label Grid.Row="2" Grid.Column="0"
+                Style="{StaticResource CenteredLabel}"
+                Text="{StaticResource wil}"/>
+            <Label Grid.Row="2" Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource CenteredLabel}"
+                Text="{StaticResource attributes}"/>
+        </Grid>-->
+        <Label Style="{StaticResource BasicLabel}"
+            Text="Background"
+            FontSize="30"/>
+        <Button Style="{StaticResource MenuButton}"
+            x:Name="backgroundButton"
+            HorizontalOptions="Fill"
+            Text="No Background Chosen"
+            FontSize="20"
+            VerticalOptions="FillAndExpand"
+            Clicked="backgroundClicked"/>
+        <Label Style="{StaticResource BasicLabel}"
+            Text="Details (Optional)"
+            FontSize="30"/>
+        <Button Style="{StaticResource MenuButton}"
+            HorizontalOptions="Fill"
+            Text="Edit Details"
+            FontSize="20"
+            VerticalOptions="FillAndExpand"
+            Clicked="detailsClicked"/>
+        <Label Style="{StaticResource BasicLabel}"
+            Text="Name"
+            FontSize="30"/>
+        <Button Style="{StaticResource MenuButton}"
+            HorizontalOptions="Fill"
+            VerticalOptions="FillAndExpand"
+            Text="No Name"
+            FontSize="20"
+            Clicked="nameClicked"
+            x:Name="nameButton"/>
+       <StackLayout Orientation="Horizontal"
+                VerticalOptions="EndAndExpand">
+            <Button Style="{StaticResource CancelButton}"
+                Clicked="cancelClicked">
+                <Button.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                        iOS="true"
+                        Android="false">
+                    </OnPlatform>
+                </Button.IsVisible>
+            </Button>
+            <Button Style="{StaticResource MenuButton}"
+                x:Name="nextButton"
+                Text="Finish"
+                HorizontalOptions="FillAndExpand"
+                Clicked="finishClicked"/>
+        </StackLayout>
+            
+    </StackLayout>
+        </ScrollView>
+</ContentPage>

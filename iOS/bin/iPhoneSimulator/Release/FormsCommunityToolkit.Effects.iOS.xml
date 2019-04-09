@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FormsCommunityToolkit.Effects.iOS</name>
+    </assembly>
+    <members>
+        <member name="M:FormsCommunityToolkit.Effects.iOS.Effects.Init">
+            <summary>
+            This is needed to ensure iOS loads the assembly with the effects in it
+            </summary>
+        </member>
+    </members>
+</doc>

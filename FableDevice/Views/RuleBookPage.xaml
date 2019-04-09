@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:util="clr-namespace:FableDevice.Models.Utilities"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.RuleBookPage"
+    NavigationPage.HasNavigationBar="false"
+    BackgroundColor="{StaticResource fableSky}">
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+	<StackLayout>
+        <util:RuleBookScrollView BackgroundColor="{StaticResource fableDark}"
+            VerticalOptions="FillAndExpand"
+            Padding="15"
+            x:Name="content">
+        </util:RuleBookScrollView>
+        <StackLayout Orientation="Horizontal">
+            <Button Style="{StaticResource MenuButton}"
+                Text="  Exit  "
+                Clicked="exitClicked"/>
+            <Button Style="{StaticResource MenuButton}"
+                HorizontalOptions="FillAndExpand"
+                Text="Back"
+                Clicked="backClicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

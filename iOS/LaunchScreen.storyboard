@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleAspectFit" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.52549019607843139" green="0.74509803921568629" blue="1" alpha="1"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="22" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="0.0" y="1444" width="240" height="240"/>
+                                <variation key="heightClass=regular-widthClass=regular" image="icon1024.png" fixedFrame="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="23" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="38" y="166" width="692" height="692"/>
+                                <variation key="heightClass=regular-widthClass=regular" image="icont1024.png" fixedFrame="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="58" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="1" y="79" width="320" height="320"/>
+                                <variation key="heightClass=regular-widthClass=compact" image="icont1024.png">
+                                    <mask key="constraints">
+                                        <include reference="71"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="71" firstAttribute="height" secondItem="58" secondAttribute="width"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="71"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <color key="tintColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                            <color key="backgroundColor" colorSpace="calibratedRGB" red="0.53333333333333333" green="0.74901960784313726" blue="0.996078431372549" alpha="1"/>
+                            <mask key="subviews">
+                                <include reference="22"/>
+                                <include reference="23"/>
+                            </mask>
+                        </variation>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="22"/>
+                                <exclude reference="23"/>
+                                <exclude reference="58"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="64"/>
+                                <exclude reference="65"/>
+                                <exclude reference="67"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="58"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="64"/>
+                                <include reference="65"/>
+                                <include reference="67"/>
+                            </mask>
+                        </variation>
+                        <constraints>
+                            <constraint id="64" firstItem="Ze5-6b-2t3" firstAttribute="centerY" secondItem="58" secondAttribute="centerY" constant="23">
+                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                            </constraint>
+                            <constraint id="65" firstItem="58" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="27">
+                                <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                            </constraint>
+                            <constraint id="67" firstItem="58" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icont1024.png" width="840" height="799"/>
+    </resources>
+</document>

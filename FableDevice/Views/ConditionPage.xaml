@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns:util="clr-namespace:FableDevice.Models.Utilities"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.ConditionPage"
+    NavigationPage.HasNavigationBar="false"
+    BackgroundColor="{StaticResource fableSky}">
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+    <StackLayout HorizontalOptions="FillAndExpand">
+        <Label x:Name="header"
+            Text="Conditions"
+            Style="{StaticResource BasicLabel}"
+            FontSize="30"
+            HorizontalOptions="Center"/>
+        <Label/>
+    	<StackLayout BackgroundColor="{StaticResource fableDark}" Padding="1,2,1,1" VerticalOptions="FillAndExpand">
+            <ListView
+                x:Name="listView"
+                SeparatorVisibility="None"
+                RowHeight="60"
+                BackgroundColor="{StaticResource fableDark}"
+                ItemSelected="Handle_ItemSelected"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ConditionCell>
+                        </local:ConditionCell>
+                   </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout BackgroundColor="{StaticResource fableDark}"
+            Padding="10"
+            x:Name="conditionDetail"
+            IsVisible="false">
+            <Label x:Name="currentLabel"
+                Style="{StaticResource BasicLabel}"
+                FontSize="30"
+                Text="Wounded"
+                HorizontalOptions="Center"/>
+            <Label x:Name="currentSubLabel"
+                Style="{StaticResource BasicLabel}"
+                FontSize="20"
+                Text="Minor Injury"
+                HorizontalOptions="Center"
+                FontAttributes="Italic"/>
+            <Label x:Name="currentDescription"
+                Style="{StaticResource BasicLabel}"
+                FontSize="20"
+                Text="      Subtract three from all Stat Checks"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <util:NoPaddingButton Style="{StaticResource MenuButton}"
+                    Text="  Close  "
+                    Clicked="closeClicked"/>
+                <util:NoPaddingButton Style="{StaticResource MenuButton}"
+                    Text="  Select  "
+                    Clicked="selectClicked"
+                    IsVisible="false"
+                    x:Name="selectButton"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+           <Button Style="{StaticResource MenuButton}"
+                Text="Filter Kind"
+                HorizontalOptions="FillAndExpand"
+                Clicked="kindClicked"/>
+            <Button Style="{StaticResource MenuButton}"
+                Text="Filter Severity"
+                HorizontalOptions="FillAndExpand"
+                Clicked="severityClicked"/>
+        </StackLayout>
+        <Button Style="{StaticResource MenuButton}"
+            Text="Back"
+            HorizontalOptions="Fill"
+            Clicked="backClicked"/>
+    </StackLayout>
+</ContentPage>

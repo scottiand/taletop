@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E2C43CF-7017-4822-8B6C-F676AC8003F3}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UseMSBuildEngine>true</UseMSBuildEngine>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FableDevice</RootNamespace>
+    <AssemblyName>FableDevice</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App.xaml" />
+    <EmbeddedResource Include="FableDevicePage.xaml" />
+    <EmbeddedResource Include="Views\CharacterCreationViews\PersonalityQuestionsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayerGameplayViews\MainPlayerGameplayPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extensions\PlayerNavBar.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayerGameplayViews\StatBonusPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayerGameplayViews\InventoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extensions\ItemCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoadingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayTypePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayerGameplayViews\CharacterChooserPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extensions\CharacterCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayerGameplayViews\SkillPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extensions\SkillCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CharacterCreationViews\CharacterCreationIntroPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CharacterCreationViews\CharacterCreationMainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CharacterCreationViews\BackgroundListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extensions\BackgroundCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CharacterCreationViews\BackgroundPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CharacterCreationViews\ItemSetPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CharacterCreationViews\NamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Die1.png" />
+    <EmbeddedResource Include="Images\Die2.png" />
+    <EmbeddedResource Include="Images\Die3.png" />
+    <EmbeddedResource Include="Images\Die4.png" />
+    <EmbeddedResource Include="Images\Die5.png" />
+    <EmbeddedResource Include="Images\Die6.png" />
+    <EmbeddedResource Include="Views\PlayerGameplayViews\EditItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GamemasterGameplayViews\MainGamemasterGameplayPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RuleBookPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BetaTestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ConditionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extensions\ConditionCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayerGameplayViews\PlayerConditionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DigitalDicePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CharacterCreationViews\CharacterDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayerGameplayViews\CharacterInfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\screenshot.png" />
+    <EmbeddedResource Include="Extensions\SimpleNoteView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NotesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extensions\NoteView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GamemasterGameplayViews\GameChooserPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extensions\GameCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GamemasterGameplayViews\NewGamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\logo.png" />
+    <EmbeddedResource Include="Images\Dice\d12-1.png" />
+    <EmbeddedResource Include="Images\Dice\d12-2.png" />
+    <EmbeddedResource Include="Images\Dice\d12-3.png" />
+    <EmbeddedResource Include="Images\Dice\d12-4.png" />
+    <EmbeddedResource Include="Images\Dice\d12-5.png" />
+    <EmbeddedResource Include="Images\Dice\d12-6.png" />
+    <EmbeddedResource Include="Images\Dice\d12-7.png" />
+    <EmbeddedResource Include="Images\Dice\d12-8.png" />
+    <EmbeddedResource Include="Images\Dice\d12-9.png" />
+    <EmbeddedResource Include="Images\Dice\d12-10.png" />
+    <EmbeddedResource Include="Images\Dice\d12-11.png" />
+    <EmbeddedResource Include="Images\Dice\d12-12.png" />
+    <EmbeddedResource Include="Extensions\CharacterStatGrid.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CreditsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\screenshotPlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FableDevicePage.xaml.cs">
+      <DependentUpon>FableDevicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\CharacterCreation\Question.cs" />
+    <Compile Include="Models\CharacterCreation\CharacterCreator.cs" />
+    <Compile Include="Models\CharacterCreation\CharacterCreation.cs" />
+    <Compile Include="Models\Utilities\ListShuffle.cs" />
+    <Compile Include="Views\CharacterCreationViews\PersonalityQuestionsPage.xaml.cs">
+      <DependentUpon>PersonalityQuestionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Utilities\Stat.cs" />
+    <Compile Include="Models\CharacterCreation\StatBlock.cs" />
+    <Compile Include="Views\PlayerGameplayViews\MainPlayerGameplayPage.xaml.cs">
+      <DependentUpon>MainPlayerGameplayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\PlayerNavBar.xaml.cs">
+      <DependentUpon>PlayerNavBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayerGameplayViews\StatBonusPage.xaml.cs">
+      <DependentUpon>StatBonusPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Views\PlayerGameplayViews\InventoryPage.xaml.cs">
+      <DependentUpon>InventoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\ItemCell.xaml.cs">
+      <DependentUpon>ItemCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Persistance\ISQLiteDb.cs" />
+    <Compile Include="Persistance\Persistance.cs" />
+    <Compile Include="Views\LoadingPage.xaml.cs">
+      <DependentUpon>LoadingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayTypePage.xaml.cs">
+      <DependentUpon>PlayTypePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayerGameplayViews\CharacterChooserPage.xaml.cs">
+      <DependentUpon>CharacterChooserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\CharacterCell.xaml.cs">
+      <DependentUpon>CharacterCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Skill.cs" />
+    <Compile Include="Views\PlayerGameplayViews\SkillPage.xaml.cs">
+      <DependentUpon>SkillPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\SkillCell.xaml.cs">
+      <DependentUpon>SkillCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharacterCreationViews\CharacterCreationIntroPage.xaml.cs">
+      <DependentUpon>CharacterCreationIntroPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CharacterCreation\Background.cs" />
+    <Compile Include="Views\CharacterCreationViews\CharacterCreationMainPage.xaml.cs">
+      <DependentUpon>CharacterCreationMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Utilities\StatDouble.cs" />
+    <Compile Include="Models\CharacterCreation\ItemSet.cs" />
+    <Compile Include="Views\CharacterCreationViews\BackgroundListPage.xaml.cs">
+      <DependentUpon>BackgroundListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\BackgroundCell.xaml.cs">
+      <DependentUpon>BackgroundCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharacterCreationViews\BackgroundPage.xaml.cs">
+      <DependentUpon>BackgroundPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharacterCreationViews\ItemSetPage.xaml.cs">
+      <DependentUpon>ItemSetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CharacterCreation\Ability.cs" />
+    <Compile Include="Views\CharacterCreationViews\NamePage.xaml.cs">
+      <DependentUpon>NamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Utilities\AutoLabel.cs" />
+    <Compile Include="Views\PlayerGameplayViews\EditItemPage.xaml.cs">
+      <DependentUpon>EditItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GamemasterGameplayViews\MainGamemasterGameplayPage.xaml.cs">
+      <DependentUpon>MainGamemasterGameplayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Utilities\NoPaddingButton.cs" />
+    <Compile Include="Models\Utilities\GameMasterUtilities.cs" />
+    <Compile Include="Views\RuleBookPage.xaml.cs">
+      <DependentUpon>RuleBookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RulePage.cs" />
+    <Compile Include="Models\RuleBook.cs" />
+    <Compile Include="Models\RuleBookButton.cs" />
+    <Compile Include="Views\BetaTestPage.xaml.cs">
+      <DependentUpon>BetaTestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SimpleItem.cs" />
+    <Compile Include="Models\FableCondition.cs" />
+    <Compile Include="Views\ConditionPage.xaml.cs">
+      <DependentUpon>ConditionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\ConditionCell.xaml.cs">
+      <DependentUpon>ConditionCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Utilities\RuleBookScrollView.cs" />
+    <Compile Include="Extensions\NoShadowButton.cs" />
+    <Compile Include="Views\PlayerGameplayViews\PlayerConditionPage.xaml.cs">
+      <DependentUpon>PlayerConditionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DigitalDicePage.xaml.cs">
+      <DependentUpon>DigitalDicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharacterCreationViews\CharacterDetailPage.xaml.cs">
+      <DependentUpon>CharacterDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayerGameplayViews\CharacterInfoPage.xaml.cs">
+      <DependentUpon>CharacterInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RulePageScreenshot.cs" />
+    <Compile Include="Extensions\ContentButton.cs" />
+    <Compile Include="Models\Notes\Note.cs" />
+    <Compile Include="Models\Notes\SimpleNote.cs" />
+    <Compile Include="Models\Notes\NoteFolder.cs" />
+    <Compile Include="Extensions\SimpleNoteView.xaml.cs">
+      <DependentUpon>SimpleNoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotesPage.xaml.cs">
+      <DependentUpon>NotesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\NoteView.xaml.cs">
+      <DependentUpon>NoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Game.cs" />
+    <Compile Include="Views\GamemasterGameplayViews\GameChooserPage.xaml.cs">
+      <DependentUpon>GameChooserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\GameCell.xaml.cs">
+      <DependentUpon>GameCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GamemasterGameplayViews\NewGamePage.xaml.cs">
+      <DependentUpon>NewGamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\CharacterStatGrid.xaml.cs">
+      <DependentUpon>CharacterStatGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreditsPage.xaml.cs">
+      <DependentUpon>CreditsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="ExifLib">
+      <HintPath>..\packages\ExifLib.PCL.1.0.2-pre01\lib\netstandard1.0\ExifLib.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Core">
+      <HintPath>..\packages\XLabs.Core.2.3.0-pre05\lib\portable-net45+win8+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac\XLabs.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.IOC">
+      <HintPath>..\packages\XLabs.IoC.2.3.0-pre05\lib\portable-net45+win8+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac\XLabs.IOC.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Serialization">
+      <HintPath>..\packages\XLabs.Serialization.2.3.0-pre05\lib\portable-net45+netcore45+wpa81+wp8+monoandroid+monotouch+xamarinios10+xamarinmac\XLabs.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Platform">
+      <HintPath>..\packages\XLabs.Platform.2.3.0-pre05\lib\portable-net45+win8+wpa81+wp8+monoandroid+monotouch+xamarinios10\XLabs.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Forms">
+      <HintPath>..\packages\XLabs.Forms.2.3.0-pre05\lib\portable-net45+win8+wpa81+monoandroid+MonoTouch+xamarinios10\XLabs.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.12\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.12\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.12\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.5.231\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsCommunityToolkit.Effects">
+      <HintPath>..\packages\FormsCommunityToolkit.Effects.1.0.0.110-beta\lib\portable-net45+wp80+win8+wpa81\FormsCommunityToolkit.Effects.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1009999\lib\netstandard1.0\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1009999\lib\netstandard1.0\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1009999\lib\netstandard1.0\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Images\icon1024.png" />
+    <None Include="Images\Dice\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\CharacterCreation\" />
+    <Folder Include="Models\Utilities\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\CharacterCreationViews\" />
+    <Folder Include="Views\PlayerGameplayViews\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Persistance\" />
+    <Folder Include="Images\" />
+    <Folder Include="Views\GamemasterGameplayViews\" />
+    <Folder Include="Models\Notes\" />
+    <Folder Include="Images\Dice\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.targets')" />
+</Project>

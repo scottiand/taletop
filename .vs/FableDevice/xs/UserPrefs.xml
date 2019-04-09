@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{266FF84B-6268-4E4E-9743-8549ADBE87CF}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Info.plist">
+    <Files>
+      <File FileName="iOS/Info.plist" />
+      <File FileName="iOS/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="iOS/Entitlements.plist" />
+      <File FileName="FableDevice/App.xaml" />
+      <File FileName="FableDevice/Properties/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="FableDevice/packages.config" Line="1" Column="1" />
+      <File FileName="iOS/Assets.xcassets/LaunchImage.launchimage/Contents.json" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FableDevice" expanded="True">
+            <Node name="FableDevice.iOS" expanded="True">
+              <Node name="Info.plist" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.FableDevice.Droid AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.FableDevice.iOS automaticSigning="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.18C7FF4D-9817-4EDA-A0A0-72A470715E23" />
+</Properties>

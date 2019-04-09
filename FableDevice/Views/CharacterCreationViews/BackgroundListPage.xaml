@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns:local="clr-namespace:FableDevice.Extensions"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FableDevice.Views.CharacterCreationViews.BackgroundListPage"
+    BackgroundColor="{StaticResource fableSky}"
+    NavigationPage.HasNavigationBar = "false">
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="20,40,20,20"
+            Android="20">
+        </OnPlatform>
+    </ContentPage.Padding>
+	<StackLayout>
+        <Label Text="Choose Background"
+            TextColor="White"
+            FontAttributes="Bold"
+            FontSize="30"
+            HorizontalOptions="Center"/>
+        <StackLayout BackgroundColor="{StaticResource fableDark}"
+            Padding="2">
+            <ListView x:Name="listView"
+                RowHeight="70"
+                BackgroundColor="{StaticResource fableDark}"
+                SeparatorVisibility="None"
+                ItemSelected="Handle_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:BackgroundCell>
+                        </local:BackgroundCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <Button Text="Cancel"
+            Style="{StaticResource MenuButton}"
+            HorizontalOptions="Fill"
+            Clicked="cancelClicked"/>
+    </StackLayout>
+</ContentPage>
